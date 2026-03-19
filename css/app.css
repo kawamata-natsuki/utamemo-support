@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap');
+
+:root {
+  /* height */
+  --header-height:80px;
+
+  /* z-index */
+  --z-header: 1000;
+  --z-overlay: 900;
+  --z-drawer: 1100;
+  --z-toggle: 1200;
+
+  /* color */
+  --background: #fafafa;
+  --dark-text: #333;
+  --light-text: #fff;
+  --header-background: rgba(40, 40, 40, 0.8);
+  --header-link-hover: #9FB4D1;
+  --footer-background: #333;
+}
+
+/* 全体リセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: var(--dark-text);
+  background: var(--background);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+  }
+
+/* ===== MAIN ===== */
+.site-main {
+  padding: 80px 40px 40px;
+  min-height: calc(100vh - var(--header-height));
+}
+
+.section{
+  padding: clamp(80px, 10vw, 120px) 20px;
+  scroll-margin-top: calc(var(--header-height) + 40px);
+}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding: 0 clamp(16px, 4vw, 24px);
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--footer-background);
+  color: var(--light-text);
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  padding: clamp(0.8rem, 1vw, 0.9rem);
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet（768px〜1023px） */
+@media (max-width: 1024px) {
+  :root {
+      --header-height: 70px;
+    }
+  .site-main {
+    padding: 80px 24px 40px;
+  }
+}
+
+/* Mobile（〜767px） */
+@media (max-width: 767px) {
+  :root {
+      --header-height: 60px;
+    }
+  .site-main {
+      padding: 80px 16px 40px;
+  }
+}

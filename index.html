@@ -1,37 +1,361 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-<meta charset="UTF-8">
-<title>UtaMemo Support</title>
-</head>
 
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UtaMemo（うためも）は、カラオケで歌いたい曲や採点結果を管理できるアプリです。次に歌う曲で迷わず、カラオケをもっと楽しめます。">
+    <meta name="keywords" content="UtaMemo,うためも,歌メモ,カラオケアプリ,採点記録,曲管理,セットリスト,カラオケ管理">
+    <meta property="og:title" content="UtaMemo（うためも）｜カラオケ採点・曲管理アプリ">
+    <meta property="og:description" content="歌いたい曲も採点結果もまとめて管理。カラオケをもっと楽しくするアプリ。">
+    <meta property="og:image" content="https://kawamata-natsuki.github.io/utamemo/images/ogp.png">
+    <meta property="og:type" content="website">
+    <title>UtaMemo（うためも）｜カラオケ採点・曲管理アプリ</title>
 
-<h1>UtaMemo サポート</h1>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
 
-<p>
-UtaMemoは、カラオケで歌いたい曲のメモと
-採点結果を記録できるアプリです。
-</p>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<h2>お問い合わせ</h2>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 
-<p>
-不具合の報告やご要望がありましたら
-以下のメールアドレスまでご連絡ください。
-</p>
+    <script src="js/app.js" defer></script>
+    <script src="js/utils.js" defer></script>
 
-<p>
-utamemo.app@gmail.com
-</p>
+  </head>
 
-<h2>Privacy Policy</h2>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <div class="site-header__logo">
+          <a href="#home">
+            <img src="images/icon_hero.png" alt="UtaMemo" class="site-header__logo-image">
+          </a>
+        </div>
+        <!-- ハンバーガーボタン -->
+        <button class="globalNav__button" type="button" aria-label="メニュー" aria-controls="globalNav" aria-expanded="false">
+          <span class="globalNav__bar"></span>
+          <span class="globalNav__bar"></span>
+          <span class="globalNav__bar"></span>
+        </button>
+        <!-- ナビゲーション -->
+        <nav id="globalNav" class="globalNav__nav">
+          <ul class="globalNav__list">
+            <li class="globalNav__item"><a href="#about" class="globalNav__link">About</a></li>
+            <li class="globalNav__item"><a href="#features" class="globalNav__link">Features</a></li>
+            <li class="globalNav__item"><a href="#howtouse" class="globalNav__link">How to Use</a></li>
+            <li class="globalNav__item"><a href="#contact" class="globalNav__link">Contact</a></li>
+            <li class="globalNav__item"><a href="#download" class="globalNav__link">Download</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-<p>
-<a href="https://kawamata-natsuki.github.io/utamemo-privacy-policy/">
-プライバシーポリシー
-</a>
-</p>
+    <!-- ナビゲーションドロワーのオーバーレイ -->
+    <div class="globalNav__overlay" data-nav-overlay></div>
 
-</body>
+    <!-- ===== HOME SECTION ===== -->
+    <section id="home" class="home-section">
+      <div class="home-section__content">
+        <div class="home-section__text">
+          <div class="home-section__title">
+            <img src="images/icon_hero.png" alt="UtaMemo（うためも）カラオケ曲管理アプリ" class="home-section__title-image">
+          </div>
+          <h1 class="home-section__title-text">
+            UtaMemo（うためも）｜カラオケ採点・曲管理アプリ
+          </h1>
+          <div class="home-section__sub-title">
+            カラオケ採点を<br class="home-section__sub-title-br">
+            もっと楽しく。<br>
+            もう、迷わない。
+          </div>
+          <p class="home-section__description">
+            歌いたい曲の管理と採点結果を記録できる<br>
+            カラオケサポートアプリ
+          </p>
+
+          <p class="download-lead">
+            UtaMemoを今すぐ無料でダウンロード
+          </p>
+          <div class="store-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.kotech.utamemo.android" class="store-buttons__item" target="_blank">
+              <img src="images/google-play-badge.png" alt="Google Playでダウンロード" class="store-buttons__image">
+            </a>
+            <div class="store-buttons__item-wrapper">
+              <a class="store-buttons__item" target="_blank">
+                <img src="images/app-store-badge.svg" alt="App Storeでダウンロード" class="store-buttons__image">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-section__image">
+          <img src="images/hero-image.png" alt="UtaMemo" class="home-section__image-img">
+        </div>
+      </div>
+    </section>
+
+    <main class="site-main">
+
+      <!-- ===== ABOUT SECTION ===== -->
+      <section id="about" class="section about-section">
+        <div class="container about-section__content">
+
+          <h2 class="section-title">
+            <img src="images/music-icon.png" alt="UtaMemo" class="section-icon">
+            <span>UtaMemoとは</span>
+          </h2>
+          <p class="section__description about-section__description">
+            UtaMemo（うためも）は、<br>
+            カラオケで歌いたい曲や採点結果を<br>
+            まとめて管理できるアプリです。<br><br>
+            「<strong>次に何を歌うか迷う時間</strong>」を減らし、<br>
+            カラオケをもっと楽しめます。
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== FEATURES SECTION ===== -->
+      <section id="features" class="section features-section">
+        <div class="container features-section__content">
+
+          <h2 class="section-title">
+            <img src="images/music-icon.png" alt="UtaMemo" class="section-icon">
+            <span>主な機能</span>
+          </h2>
+          <p class="section__description">
+            UtaMemoでは、<br class="features-section__sub-title-br">カラオケをもっと楽しむための<br>
+            シンプルな機能を提供しています。
+          </p>
+
+          <div class="features-grid">
+            <div class="feature-item">
+              <img src="images/feature-memo.png" class="feature-icon">
+              <h3 class="feature-item__title">曲を登録</h3>
+              <p class="feature-item__description">
+                カラオケで歌いたい曲を<br>
+                忘れないように登録できます。<br>
+              </p>
+            </div>
+
+            <div class="feature-item">
+              <img src="images/feature-setlist.png" class="feature-icon">
+              <h3 class="feature-item__title">曲を整理</h3>
+              <p class="feature-item__description">
+                ステータスやタグで<br>
+                登録した曲を整理できます。
+              </p>
+            </div>
+
+            <div class="feature-item">
+              <img src="images/feature-score.png" class="feature-icon">
+              <h3 class="feature-item__title">採点結果を記録</h3>
+              <p class="feature-item__description">
+                カラオケの採点結果<br>
+                を記録して振り返れます。
+              </p>
+            </div>
+          </div>
+
+          <div class="features-sub">
+            <span class="features-sub__item">
+              <i class="fa-solid fa-chart-bar feature-sub__icon"></i>
+              スコアサマリ
+            </span>
+            <span class="features-sub__item">
+              <i class="fa-solid fa-bolt feature-sub__icon"></i>
+              起動時リスト表示
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW TO USE SECTION -->
+      <section id="howtouse" class="section howto-section">
+        <div class="container">
+          <h2 class="section-title howto-section__title">
+            <img src="images/music-icon.png" alt="UtaMemo" class="section-icon">
+            <span>UtaMemoの<br class="howto-section__title-br">使い方</span>
+          </h2>
+
+          <div class="howto-step">
+            <div class="howto-text">
+              <h3 class="howto-text__title">歌いたい曲を登録</h3>
+              <p class="howto-text__description">
+                ふと思いついた曲や、<br>
+                次のカラオケで歌いたい曲を<br>
+                すぐに登録できます。
+              </p>
+              <ul class="howto-text__list">
+                <li class="howto-text__list-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  曲名やアーティスト名から曲を検索
+                </li>
+                <li class="howto-text__list-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  歌いたい曲をすぐに追加
+                </li>
+                <li class="howto-text__list-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  自分だけのセットリストを作成
+                </li>
+              </ul>
+            </div>
+            <div class="howto-image">
+              <img class="howto-image__img" src="images/howto/howto1.png" alt="曲を登録">
+            </div>
+          </div>
+
+          <div class="howto-step">
+            <div class="howto-text">
+              <h3 class="howto-text__title">歌いたい曲を見つける</h3>
+              <p class="howto-text__description">
+                お気に入り・歌いたい・練習中など<br>
+                ステータスやタグで曲を整理して<br>
+                次に歌う曲をすぐ見つけられます。
+              </p>
+              <ul class="howto-text__list">
+                <li class="howto-text__list-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  ステータスで曲を整理
+                </li>
+                <li class="howto-text__list-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  タグで自分だけの分類が可能
+                </li>
+                <li class="howto-text__list-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  絞り込み検索で曲をすぐ見つけられます
+                </li>
+              </ul>
+            </div>
+            <div class="howto-image">
+              <img class="howto-image__img" src="images/howto/howto2.png" alt="セットリストで管理">
+            </div>
+          </div>
+
+          <div class="howto-step">
+            <div class="howto-text">
+              <h3 class="howto-text__title">採点結果をかんたん記録</h3>
+              <p class="howto-text__description">
+                カラオケで歌った後は<br>
+                採点結果を記録して<br>
+                スコアや成長を振り返れます。
+              </p>
+              <ul class="howto-text__list">
+                <li class="howto-text__list-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  採点結果を簡単に記録
+                </li>
+                <li class="howto-text__list-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  カラオケ機種・キー・メモも記録
+                </li>
+                <li class="howto-text__list-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  最高点にはバッジが付きます
+                </li>
+              </ul>
+            </div>
+            <div class="howto-image">
+              <img class="howto-image__img" src="images/howto/howto3.png" alt="採点結果を記録">
+            </div>
+          </div>
+
+          <div class="howto-extra">
+            <h3 class="howto-extra__title">便利な機能</h3>
+            <p class="howto-extra__sub-title">
+              UtaMemoをもっと便利に使うための機能
+            </p>
+            <div class="howto-extra__grid">
+              <div class="howto-extra__item">
+                <img src="images/howto/howto4.png" class="howto-extra__image">
+                <h4 class="howto-extra__item-title">スコアサマリ</h4>
+                <p class="howto-extra__description">
+                  曲ごとの<br class="howto-extra__item-title-br">
+                  最高点・平均点・採点回数を<br class="howto-extra__item-title-br">
+                  確認できます。</p>
+              </div>
+              <div class="howto-extra__item">
+                <img src="images/howto/howto5.png" class="howto-extra__image">
+                <h4 class="howto-extra__item-title">起動時リスト表示</h4>
+                <p class="howto-extra__description">
+                  アプリ起動時に歌いたい曲を<br class="howto-extra__item-title-br">
+                  すぐ確認できます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="container contact-section__content">
+          <h2 class="section-title contact-section__title">
+            <img src="images/music-icon.png" alt="UtaMemo" class="section-icon">
+            <span>お問い合わせ</span>
+          </h2>
+          <div class="contact-card">
+            <p class="contact-text">
+              不具合の報告やご要望がありましたら、<br>
+              下記メールアドレスまで<br class="contact-text-br">
+              ご連絡ください。
+            </p>
+            <div class="contact-mail" id="email">
+              utamemo.app@gmail.com
+            </div>
+            <div class="contact-button-wrap">
+              <button class="contact-button" type="button" onclick="copyEmail()">
+                メールアドレスをコピー
+              </button>
+              <div id="toast" class="toast" aria-live="polite" aria-atomic="true">
+                コピーしました
+              </div>
+            </div>
+          </div>
+          <div class="contact-links">
+            <a href="https://kawamata-natsuki.github.io/utamemo-privacy-policy/" target="_blank" class="contact-links__item">
+              プライバシーポリシー
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section id="download" class="section download-section">
+      <div class="container download-section__content">
+        <h2 class="section-title">
+          <img src="images/music-icon-white.png" alt="UtaMemo" class="section-icon download-section__icon">
+        </h2>
+
+        <p class="download-catch">
+          次に歌う曲、もう迷わない。
+        </p>
+        <p class="download-sub">
+          歌いたい曲も、採点結果も、<br class="download-sub-br">まとめて管理できるアプリ
+        </p>
+        <div class="store-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.kotech.utamemo.android" class="store-buttons__item" target="_blank">
+            <img src="images/google-play-badge.png" alt="Google Playでダウンロード" class="store-buttons__image">
+          </a>
+          <div class="store-buttons__item-wrapper">
+            <a class="store-buttons__item" target="_blank">
+              <img src="images/app-store-badge.svg" alt="App Storeでダウンロード" class="store-buttons__image">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p>Copyright © 2026 UtaMemo</p>
+      </div>
+    </footer>
+
+  </body>
 </html>

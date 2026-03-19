@@ -1,0 +1,217 @@
+/* ===== ヘッダー ===== */
+.site-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: var(--header-background);
+  z-index: var(--z-header, 1000);
+  backdrop-filter: blur(10px);
+}
+
+.site-header__inner {
+  max-width: 1100px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header__logo {
+  width: clamp(120px, 15vw, 200px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.site-header__logo-image {
+  width: 100%;
+  height: auto;
+  object-fit:contain;
+  display: block;
+}
+
+/* ===== ハンバーガー ===== */
+/* ハンバーガーはPCでは非表示、モバイルのみ表示 */
+body.no-scroll {
+  overflow: hidden;
+}
+
+.globalNav__button {
+  display: none;
+}
+
+/* ===== ナビゲーションドロワーのオーバーレイ ===== */
+.globalNav__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: var(--z-overlay, 900);
+}
+
+/* ===== ナビゲーションリスト ===== */
+.globalNav__list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: clamp(16px, 2.5vw, 25px);
+}
+
+.globalNav__link {
+  color: var(--light-text);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+  color: var(--light-text);
+  font-weight: 500;
+  border-bottom: none;
+}
+
+.globalNav__link:hover {
+  color: var(--header-link-hover);
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet（768px〜1023px） */
+@media (max-width: 1024px) {
+  .globalNav__link {
+    font-weight: 400;
+  }
+}
+
+/* Mobile（〜767px） */
+@media (max-width: 767px) {
+  .globalNav__nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+    z-index: var(--z-drawer, 1100);
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+  }
+
+  .globalNav__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .globalNav__link {
+    display: block;
+    width: 100%;
+    padding: 12px 2px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    pointer-events: auto;
+  }
+
+  .globalNav__button {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background: transparent;
+    color: var(--light-text);
+    cursor: pointer;
+    z-index: var(--z-toggle, 1200);
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    overflow: visible;
+  }
+
+  .globalNav__bar {
+    position: absolute;
+    right: 6px;
+    width: 18px;
+    height: 2px;
+    background: var(--light-text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: right center;
+    margin-top: -1px;
+  }
+
+  .globalNav__bar:nth-child(1) {
+    top: 9px;
+  }
+
+  .globalNav__bar:nth-child(2) {
+    top: 15px;
+  }
+
+  .globalNav__bar:nth-child(3) {
+    top: 21px;
+  }
+
+  /* 開いたときの状態 */
+  body.nav-open .globalNav__nav {
+    transform: translateX(0);
+    box-sizing: border-box;
+  }
+
+  body.nav-open .globalNav__overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ハンバーガー → × に変形 */
+  body.nav-open .globalNav__bar {
+    width: 18px;
+    right: auto;
+    left: 50%;
+    transform-origin: center;
+  }
+
+  body.nav-open .globalNav__bar:nth-child(1) {
+    top: 15px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  body.nav-open .globalNav__bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  body.nav-open .globalNav__bar:nth-child(3) {
+    top: 15px;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+
+  /* ×変形時の見切れ防止 */
+  body.nav-open .globalNav__button {
+    overflow: visible;
+  }
+
+  /* ヘッダー全体の見切れ防止 */
+  body.nav-open .site-header,
+  body.nav-open .site-header__inner {
+    overflow: visible;
+  }
+}
