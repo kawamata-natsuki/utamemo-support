@@ -679,15 +679,7 @@
   opacity: 0.8;
 }
 
-.download-section .store-buttons__item {
-  height: 74px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
-.download-section .store-buttons__item:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
 
 section:last-of-type {
   min-height: auto;
