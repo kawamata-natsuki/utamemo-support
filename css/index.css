@@ -203,7 +203,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 80px;
+  padding-top: var(--header-height);
 }
 
 .about-section__description{
@@ -541,6 +541,11 @@
 /* ===== CONTACT SECTION ===== */
 .contact-section {
   text-align: center;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .contact-card {
@@ -786,8 +791,8 @@ section:last-of-type {
 
   /* ===== CONTACT SECTION ===== */
   .contact-section {
-    height: auto;
-    padding: 40px 20px;
+    padding: 80px 20px;
+
   }
 
   .contact-card {
@@ -1052,9 +1057,13 @@ section:last-of-type {
 
   /* ===== CONTACT SECTION ===== */
   .contact-section {
-    height: auto;
-    padding-bottom: 40px;
+    height: 100svh;
     margin-top:0px;
+    padding: 40px 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .contact-card {
