@@ -86,7 +86,7 @@
   align-items: center;
   justify-content: center;
   text-align:center;
-  margin-bottom: clamp(16px, 3vw, 24px);
+  margin-bottom: clamp(16px, 2vw, 24px);
 }
 
 .home-section__title-image {
@@ -418,7 +418,6 @@
 }
 .howto-step:nth-of-type(3)::after{
   background-image:url("../images/feature-score.png");
-  transform:translateX(-160px);
 }
 
 .howto-text{
@@ -489,6 +488,10 @@
   margin-bottom:40px;
 }
 
+.howto-extra__sub-title-br{
+  display: none;
+}
+
 .howto-extra__grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -508,12 +511,12 @@
 }
 
 .howto-extra__item-title{
-  font-size:clamp(1rem, 1.2vw, 1.2rem);
+  font-size:clamp(1.2rem, 1.5vw, 1.5rem);
   margin-bottom: 8px;
 }
 
 .howto-extra__description{
-  font-size:clamp(0.8rem, 0.9vw, 0.95rem);
+  font-size:clamp(0.9rem, 1.2vw, 1.2rem);
   margin-top: 0;
   line-height: 1.6;
 }
@@ -689,11 +692,130 @@ section:last-of-type {
 /* ===== RESPONSIVE ===== */
 /* Tablet（768px〜1023px） */
 @media (max-width: 1024px) {
-  .home-section {
-    min-height: auto;
-    padding-top: calc(var(--header-height) + 40px);
-    padding-bottom: 40px;
+  /* ===== UTILITY CLASSES ===== */
+  .section-title{
+    margin-bottom: 32px;
   }
+
+  .section-icon{
+    margin-bottom:20px;
+  }
+
+  /* ===== HOME SECTION ===== */
+
+  .home-section__content {
+    max-width: 960px;
+  }
+
+  .home-section__text {
+    flex: 1;
+    max-width: 420px;
+  }
+
+  /* ストアボタン */
+  .download-lead {
+    margin-top: clamp(16px, 3vw, 20px);
+    margin-bottom: clamp(10px, 2vw, 20px);
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .store-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .home-section__image {
+    flex: 0 1 350px;
+  }
+
+  /* スマホモック画像 */
+  .home-section__image-img {
+    width: 280px;
+  }
+
+  /* ===== FEATURES SECTION ===== */
+  .features-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .feature-item:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  /* ===== HOW TO USE SECTION ===== */
+  .howto-step::before {
+    left: -10px;
+    top: -50px;
+    font-size: 100px;
+  }
+
+  .howto-step::after{
+    width:200px;
+    height:200px;
+    bottom:20px;
+    left:60%;
+    transform:translateX(-50%);
+  }
+
+  .howto-step:nth-of-type(odd)::after{
+    left:40%;
+  }
+
+  .howto-step:nth-of-type(even)::after{
+    left:55%;
+  }
+
+  /* ===== EXTRA SECTION ===== */
+  .howto-extra__sub-title-br{
+    display: inline;
+  }
+
+  .howto-extra__image{
+    width:200px;
+  }
+
+  .howto-extra__item-title-br{
+    display: inline;
+  }
+
+  /* ===== CONTACT SECTION ===== */
+  .contact-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .contact-card {
+    padding: 32px 24px;
+    max-width: 500px;
+    margin: 40px auto 16px;
+  }
+
+  .contact-text {
+    margin-bottom: 16px;
+  }
+
+  .contact-text-br{
+    display: inline;
+  }
+
+  .contact-mail {
+    margin-bottom: 16px;
+  }
+
+  .contact-button {
+    padding: 12px 24px;
+  }
+
+  section:last-of-type {
+    height: auto;
+  }
+
 }
 
 /* Mobile（〜767px） */
@@ -930,12 +1052,9 @@ section:last-of-type {
 
   /* ===== CONTACT SECTION ===== */
   .contact-section {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    min-height: auto;
+    height: auto;
+    padding-bottom: 40px;
+    margin-top:0px;
   }
 
   .contact-card {
@@ -962,10 +1081,6 @@ section:last-of-type {
   }
 
   /* ===== DOWNLOAD SECTION ===== */
-  .download-section {
-    padding: 100px 20px;
-  }
-
   .download-icon {
     width: 50px;
     margin-bottom: 20px;
@@ -997,4 +1112,10 @@ section:last-of-type {
     transform: translateY(-4px) scale(1.05);
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
   }
+
+  section:last-of-type {
+    min-height: auto;
+    height: 100svh;
+  }
+
 }
